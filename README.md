@@ -10,10 +10,10 @@
 * Node version v15.11.0 or latest
 * Package manager yarn
 
-### Clone repository
+### Clone repository:
 
 ```bash
-https://github.com/Cyfrowi-Publikanci/front-service.git
+git clone https://github.com/Cyfrowi-Publikanci/front-service.git
 ```
 
 <br/>
@@ -44,7 +44,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 yarn build
 ```
 
-### Build completed successfully
+### Build completed successfully:
 
 ```bash
 λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
