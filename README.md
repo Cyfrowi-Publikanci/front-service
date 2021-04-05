@@ -1,8 +1,8 @@
 ## Table of Contents:
-* [Requirements]()
-* [Local development]()
-* [Build]()
-* [Docker]()
+* [Requirements](https://github.com/Cyfrowi-Publikanci/front-service#requirements)
+* [Local development](https://github.com/Cyfrowi-Publikanci/front-service#local-development)
+* [Build](https://github.com/Cyfrowi-Publikanci/front-service#build)
+* [Docker](https://github.com/Cyfrowi-Publikanci/front-service#docker)
 
 <br/>
 
