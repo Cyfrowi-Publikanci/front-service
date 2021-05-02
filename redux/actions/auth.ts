@@ -23,7 +23,6 @@ export const loginByEmail = (payload: LoginByEmailPayload, successfulCallback: (
 ) => {
   try {
     dispatch(showGlobalLoader());
-    console.log(payload.toObject())
     const response = await authServiceClient.loginByEmail(payload, {});
     const { token } = response.toObject();
 
@@ -42,7 +41,6 @@ export const register = (payload: RegisterByEmailPayload, successfulCallback: ()
 ) => {
   try {
     dispatch(showGlobalLoader());
-    console.log(payload.toObject())
     await authServiceClient.registerByEmail(payload, {});
 
     successfulCallback();
