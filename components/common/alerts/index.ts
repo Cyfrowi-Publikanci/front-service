@@ -1,0 +1,1 @@
+export { AlertPubLab } from './alert';

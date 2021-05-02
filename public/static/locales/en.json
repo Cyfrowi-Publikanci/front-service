@@ -1,0 +1,12 @@
+{
+  "PubLab": "PubLab",
+  "Login": "Login",
+  "Register": "Register",
+  "Email": "Email",
+  "Password": "Password",
+  "Login successfully": "Login successfully",
+  "Login failed": "Login failed",
+  "Email is incorrect": "Email is incorrect",
+  "Registered successfully": "Registered successfully",
+  "Registered failed": "Registered failed"
+}

@@ -3,6 +3,7 @@
 * [Local development](https://github.com/Cyfrowi-Publikanci/front-service#local-development)
 * [Build](https://github.com/Cyfrowi-Publikanci/front-service#build)
 * [Docker](https://github.com/Cyfrowi-Publikanci/front-service#docker)
+* [gRPC-Web Developer Tools](https://chrome.google.com/webstore/detail/grpc-web-developer-tools/ddamlpimmiapbcopeoifjfmoabdbfbjj)
 
 <br/>
 
@@ -14,6 +15,12 @@
 
 ```bash
 git clone https://github.com/Cyfrowi-Publikanci/front-service.git
+```
+
+### Create required env files:
+
+```bash
+cp .env.example .env
 ```
 
 <br/>
@@ -32,7 +39,10 @@ yarn install
 yarn dev
 ```
 
+Setup back-end based on instructions provided in https://github.com/Cyfrowi-Publikanci/pub-lab#requirements
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
 <br/>
 

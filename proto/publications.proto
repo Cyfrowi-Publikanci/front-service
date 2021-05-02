@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package publications;
+
+
+service PublicationsService {
+  rpc getAllPublications(EmptyPayload) returns (GetAllPublicationsResponse) {}
+}
+
+message EmptyPayload {}
+
+message GetAllPublicationsResponse {
+  string publication = 1;
+}
