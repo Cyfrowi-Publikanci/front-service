@@ -3,7 +3,7 @@ import i18n from 'i18next';
 
 import { AppState } from '../rootReducer';
 import { hideGlobalLoader, showAlert, showGlobalLoader } from './components';
-import { AuthActionTypes, AUTHENTICATE_SUCCESS, LOGOUT, LogoutAction } from '../actions-types/auth';
+import { AuthActionTypes, AUTHENTICATE_SUCCESS, LOGOUT, LogoutAction, SIGN_IN_GOOGLE } from '../actions-types/auth';
 import { ComponentsActionTypes } from '../actions-types/components';
 import { AlertType } from '../../components/common/alerts/types';
 import { LoginByEmailPayload, RegisterByEmailPayload } from '../../proto-generated/authentication_pb';
@@ -15,6 +15,11 @@ export const logout = (): LogoutAction => ({
 
 export const authenticateSuccess = (payload: { token: string }): AuthActionTypes => ({
   type: AUTHENTICATE_SUCCESS,
+  payload,
+});
+
+export const signInGoogle = (payload: { state: string }): AuthActionTypes => ({
+  type: SIGN_IN_GOOGLE,
   payload,
 });
 
