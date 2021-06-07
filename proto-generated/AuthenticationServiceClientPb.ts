@@ -176,5 +176,45 @@ export class AuthServiceClient {
     this.methodInforegisterByEmail);
   }
 
+  methodInfoeditPassword = new grpcWeb.AbstractClientBase.MethodInfo(
+    authentication_pb.EditPasswordResponse,
+    (request: authentication_pb.EditPasswordPayload) => {
+      return request.serializeBinary();
+    },
+    authentication_pb.EditPasswordResponse.deserializeBinary
+  );
+
+  editPassword(
+    request: authentication_pb.EditPasswordPayload,
+    metadata: grpcWeb.Metadata | null): Promise<authentication_pb.EditPasswordResponse>;
+
+  editPassword(
+    request: authentication_pb.EditPasswordPayload,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.Error,
+               response: authentication_pb.EditPasswordResponse) => void): grpcWeb.ClientReadableStream<authentication_pb.EditPasswordResponse>;
+
+  editPassword(
+    request: authentication_pb.EditPasswordPayload,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.Error,
+               response: authentication_pb.EditPasswordResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/authentication.AuthService/editPassword',
+        request,
+        metadata || {},
+        this.methodInfoeditPassword,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/authentication.AuthService/editPassword',
+    request,
+    metadata || {},
+    this.methodInfoeditPassword);
+  }
+
 }
 

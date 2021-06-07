@@ -38,6 +38,11 @@ export const LeftMenu = ({ handleDrawerClose }: Props) => {
           url={routes.register}
           handleDrawerClose={handleDrawerClose}
         />
+        <MenuItem
+          label={t`Change Password`}
+          url={routes.editPassword}
+          handleDrawerClose={handleDrawerClose}
+        />
       </List>
     </>
   );
