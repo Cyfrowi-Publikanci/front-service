@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard should match snapshot 1`] = `
+<Layout>
+  <Head>
+    <title>
+      Dashboard
+    </title>
+  </Head>
+  <h1>
+    Dashboard
+  </h1>
+</Layout>
+`;

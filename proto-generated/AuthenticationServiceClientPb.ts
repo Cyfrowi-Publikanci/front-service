@@ -176,6 +176,7 @@ export class AuthServiceClient {
     this.methodInforegisterByEmail);
   }
 
+
   methodInfoeditPassword = new grpcWeb.AbstractClientBase.MethodInfo(
     authentication_pb.EditPasswordResponse,
     (request: authentication_pb.EditPasswordPayload) => {
@@ -194,7 +195,7 @@ export class AuthServiceClient {
     callback: (err: grpcWeb.Error,
                response: authentication_pb.EditPasswordResponse) => void): grpcWeb.ClientReadableStream<authentication_pb.EditPasswordResponse>;
 
-  editPassword(
+   editPassword(
     request: authentication_pb.EditPasswordPayload,
     metadata: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.Error,
@@ -214,6 +215,47 @@ export class AuthServiceClient {
     request,
     metadata || {},
     this.methodInfoeditPassword);
+  }
+
+  methodInfologinByGoogle = new grpcWeb.AbstractClientBase.MethodInfo(
+    authentication_pb.LoginByGoogleResponse,
+    (request: authentication_pb.LoginByGooglePayload) => {
+      return request.serializeBinary();
+    },
+    authentication_pb.LoginByGoogleResponse.deserializeBinary
+  );
+
+  loginByGoogle(
+    request: authentication_pb.LoginByGooglePayload,
+    metadata: grpcWeb.Metadata | null): Promise<authentication_pb.LoginByGoogleResponse>;
+
+  loginByGoogle(
+    request: authentication_pb.LoginByGooglePayload,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.Error,
+               response: authentication_pb.LoginByGoogleResponse) => void): grpcWeb.ClientReadableStream<authentication_pb.LoginByGoogleResponse>;
+
+  loginByGoogle(
+    request: authentication_pb.LoginByGooglePayload,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.Error,
+               response: authentication_pb.LoginByGoogleResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/authentication.AuthService/loginByGoogle',
+        request,
+        metadata || {},
+        this.methodInfologinByGoogle,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+
+      '/authentication.AuthService/loginByGoogle',
+    request,
+    metadata || {},
+    this.methodInfologinByGoogle);
   }
 
 }

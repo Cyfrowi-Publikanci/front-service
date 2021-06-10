@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core';
 import { Layout } from '../../components/common/layout';
 import { LoginForm } from '../../components/login/form';
 import { ContentPaper } from '../../components/common/content-paper';
+import { GoogleLogin } from '../../components/google-login';
 
 export default function Login() {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ export default function Login() {
       <div className={classes.wrapper}>
         <ContentPaper className={classes.contentPaper}>
           <LoginForm />
+          <GoogleLogin />
         </ContentPaper> 
       </div>
     </Layout>

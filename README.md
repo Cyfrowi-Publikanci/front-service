@@ -4,7 +4,7 @@
 * [Build](https://github.com/Cyfrowi-Publikanci/front-service#build)
 * [Docker](https://github.com/Cyfrowi-Publikanci/front-service#docker)
 * [gRPC-Web Developer Tools](https://chrome.google.com/webstore/detail/grpc-web-developer-tools/ddamlpimmiapbcopeoifjfmoabdbfbjj)
-
+* [Tests](https://github.com/Cyfrowi-Publikanci/front-service#tests)
 <br/>
 
 ## Requirements:
@@ -115,3 +115,11 @@ CONTAINER ID   IMAGE       COMMAND                  CREATED         STATUS      
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Tests:
+
+```bash
+yarn test
+# or
+yarn test:coverage
+```

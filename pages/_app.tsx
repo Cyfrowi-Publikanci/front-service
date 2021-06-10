@@ -17,6 +17,11 @@ const theme = createMuiTheme({
   },
 });
 
+if (!global.XMLHttpRequest) {
+  // eslint-disable-next-line global-require
+  global.XMLHttpRequest = require('xhr2');
+}
+
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');

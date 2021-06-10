@@ -8,3 +8,5 @@ const getAuthState = (state: AppState): AuthState => state.auth;
 export const selectAuthorizationToken = createSelector(getAuthState, authState => authState.authorization);
 
 export const selectAuthenticateError = createSelector(getAuthState, authState => authState.authenticateError);
+
+export const selectState = createSelector(getAuthState, authState => authState.state);

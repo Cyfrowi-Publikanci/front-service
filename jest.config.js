@@ -1,0 +1,40 @@
+module.exports = {
+  collectCoverageFrom: [
+    '**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/tests/**',
+    '!**/coverage/**',
+    '!jest.config.ts',
+    '!next-env.d.ts',
+    '!./pages/_app.tsx',
+    '!./pages/_document.tsx',
+    '!./pages/_error.tsx',
+    '!**/routes/**',
+    '!**/config/**',
+    '!**/proto/**',
+    '!**/proto-generated/**',
+    '!**/**index.ts',
+    '!**/**types.ts',
+    '!**/**.d.ts',
+    '!**/api/**.ts',
+    '!**/api/interceptors/**.ts'
+  ],
+  setupFiles: ['<rootDir>/__tests__/config/tests-setup.ts'],
+  preset: 'ts-jest',
+  testPathIgnorePatterns: ['/.next/', '/node_modules/', '/lib/', '/tests/', '/coverage/', '/config/', '__mocks__', '/test-utils'],
+  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
+  testEnvironment: 'jsdom',
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  modulePathIgnorePatterns: ['config'],
+  moduleNameMapper: {
+    '~/(.*)': '<rootDir>/$1',
+    '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$':
+      'identity-obj-proxy',
+  },
+  transform: {
+    '.(ts|tsx)': 'babel-jest',
+  },
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+};
