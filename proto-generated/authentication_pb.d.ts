@@ -114,6 +114,50 @@ export namespace RegisterByEmailResponse {
   }
 }
 
+export class EditPasswordResponse extends jspb.Message {
+  getEmail(): string;
+  setEmail(value: string): EditPasswordResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): EditPasswordResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: EditPasswordResponse): EditPasswordResponse.AsObject;
+  static serializeBinaryToWriter(message: EditPasswordResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): EditPasswordResponse;
+  static deserializeBinaryFromReader(message: EditPasswordResponse, reader: jspb.BinaryReader): EditPasswordResponse;
+}
+
+export namespace EditPasswordResponse {
+  export type AsObject = {
+    email: string,
+  }
+}
+
+export class EditPasswordPayload extends jspb.Message {
+  getEmail(): string;
+  setEmail(value: string): EditPasswordPayload;
+
+  getPassword(): string;
+  setPassword(value: string): EditPasswordPayload;
+
+  getPasswordconfirm(): string;
+  setPasswordconfirm(value: string): EditPasswordPayload;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): EditPasswordPayload.AsObject;
+  static toObject(includeInstance: boolean, msg: EditPasswordPayload): EditPasswordPayload.AsObject;
+  static serializeBinaryToWriter(message: EditPasswordPayload, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): EditPasswordPayload;
+  static deserializeBinaryFromReader(message: EditPasswordPayload, reader: jspb.BinaryReader): EditPasswordPayload;
+}
+
+export namespace EditPasswordPayload {
+  export type AsObject = {
+    email: string,
+    password: string,
+    passwordconfirm: string,
+ }
+}
+ 
 export class LoginByGooglePayload extends jspb.Message {
   getToken(): string;
   setToken(value: string): LoginByGooglePayload;
