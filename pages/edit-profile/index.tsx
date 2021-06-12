@@ -4,12 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core';
 
 import { Layout } from '../../components/common/layout';
-import { EditForm } from '../../components/editProfile/form';
+import { EditProfileForm } from '../../components/edit-profile/form';
 import { ContentPaper } from '../../components/common/content-paper';
+import { useAuthGuard } from '../../shared/auth-guard';
 
 export default function EditProfile() {
   const { t } = useTranslation();
   const classes = useStyles();
+  const isLoggedIn = useAuthGuard();
+
+  if (!isLoggedIn) return <></>;
 
   return (
     <Layout>
@@ -18,7 +22,7 @@ export default function EditProfile() {
       </Head>
       <div className={classes.wrapper}>
         <ContentPaper className={classes.contentPaper}>
-          <EditForm />
+          <EditProfileForm />
         </ContentPaper> 
       </div>
     </Layout>
