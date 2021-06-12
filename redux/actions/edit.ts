@@ -9,7 +9,7 @@ import { EditPasswordPayload } from '../../proto-generated/authentication_pb';
 import { authServiceClient } from '../../api/rpc';
 
 
-export const EditPassword = (payload: EditPasswordPayload, successfulCallback: () => void) => async (
+export const editPassword = (payload: EditPasswordPayload, successfulCallback: () => void) => async (
     dispatch: ThunkDispatch<AppState, void, AuthActionTypes | ComponentsActionTypes>,
     ) => {
       try {
