@@ -155,9 +155,9 @@ export namespace EditPasswordPayload {
     email: string,
     password: string,
     passwordconfirm: string,
- }
+  }
 }
- 
+
 export class LoginByGooglePayload extends jspb.Message {
   getToken(): string;
   setToken(value: string): LoginByGooglePayload;
