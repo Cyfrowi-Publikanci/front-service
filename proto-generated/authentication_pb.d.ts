@@ -194,3 +194,51 @@ export namespace LoginByGoogleResponse {
   }
 }
 
+export class BuyPremiumPayload extends jspb.Message {
+  getCard(): string;
+  setCard(value: string): BuyPremiumPayload;
+
+  getCvc(): string;
+  setCvc(value: string): BuyPremiumPayload;
+
+  getMonth(): string;
+  setMonth(value: string): BuyPremiumPayload;
+
+  getYear(): string;
+  setYear(value: string): BuyPremiumPayload;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BuyPremiumPayload.AsObject;
+  static toObject(includeInstance: boolean, msg: BuyPremiumPayload): BuyPremiumPayload.AsObject;
+  static serializeBinaryToWriter(message: BuyPremiumPayload, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BuyPremiumPayload;
+  static deserializeBinaryFromReader(message: BuyPremiumPayload, reader: jspb.BinaryReader): BuyPremiumPayload;
+}
+
+export namespace BuyPremiumPayload {
+  export type AsObject = {
+    card: string,
+    cvc: string,
+    month: string,
+    year: string,
+  }
+}
+
+export class BuyPremiumResponse extends jspb.Message {
+  getPaymentstatus(): string;
+  setPaymentstatus(value: string): BuyPremiumResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BuyPremiumResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: BuyPremiumResponse): BuyPremiumResponse.AsObject;
+  static serializeBinaryToWriter(message: BuyPremiumResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BuyPremiumResponse;
+  static deserializeBinaryFromReader(message: BuyPremiumResponse, reader: jspb.BinaryReader): BuyPremiumResponse;
+}
+
+export namespace BuyPremiumResponse {
+  export type AsObject = {
+    paymentstatus: string,
+  }
+}
+

@@ -256,5 +256,45 @@ export class AuthServiceClient {
     this.methodInfologinByGoogle);
   }
 
+  methodInfobuyPremium = new grpcWeb.AbstractClientBase.MethodInfo(
+    authentication_pb.BuyPremiumResponse,
+    (request: authentication_pb.BuyPremiumPayload) => {
+      return request.serializeBinary();
+    },
+    authentication_pb.BuyPremiumResponse.deserializeBinary
+  );
+
+  buyPremium(
+    request: authentication_pb.BuyPremiumPayload,
+    metadata: grpcWeb.Metadata | null): Promise<authentication_pb.BuyPremiumResponse>;
+
+  buyPremium(
+    request: authentication_pb.BuyPremiumPayload,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.Error,
+               response: authentication_pb.BuyPremiumResponse) => void): grpcWeb.ClientReadableStream<authentication_pb.BuyPremiumResponse>;
+
+  buyPremium(
+    request: authentication_pb.BuyPremiumPayload,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.Error,
+               response: authentication_pb.BuyPremiumResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/authentication.AuthService/buyPremium',
+        request,
+        metadata || {},
+        this.methodInfobuyPremium,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/authentication.AuthService/buyPremium',
+    request,
+    metadata || {},
+    this.methodInfobuyPremium);
+  }
+
 }
 
