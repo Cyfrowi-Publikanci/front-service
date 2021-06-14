@@ -13,6 +13,7 @@ export default function Dashboard() {
         <title>{t`Dashboard`}</title>
       </Head>
       <h1>{t`Dashboard`}</h1>
+      <a href ="http://localhost:3000/profile/60c72a81e56dda01f93e6c23">user's profile</a>
     </Layout>
   );
 }

@@ -3,7 +3,6 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-
 import { MenuItem } from './menu-item';
 import routes from '../../../config/routes';
 
@@ -13,6 +12,8 @@ interface Props {
 
 export const LeftMenu = ({ handleDrawerClose }: Props) => {
   const { t } = useTranslation();
+
+  //const {id} = ;
 
   return (
     <>
@@ -41,6 +42,16 @@ export const LeftMenu = ({ handleDrawerClose }: Props) => {
         <MenuItem
           label={t`Change Password`}
           url={routes.editPassword}
+          handleDrawerClose={handleDrawerClose}
+        />
+        <MenuItem
+          label={t`Profile`}
+          url={routes.profile}
+          handleDrawerClose={handleDrawerClose}
+        />
+        <MenuItem
+          label={t`Edit profile`}
+          url={routes.editProfile}
           handleDrawerClose={handleDrawerClose}
         />
       </List>

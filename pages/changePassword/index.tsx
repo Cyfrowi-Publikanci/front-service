@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { makeStyles } from '@material-ui/core';
 
 import { Layout } from '../../components/common/layout';
-import { EditProfileForm } from '../../components/editProfile/form';
+import { EditForm } from '../../components/changePassword/form';
 import { ContentPaper } from '../../components/common/content-paper';
 
 export default function EditProfile() {
@@ -18,7 +18,7 @@ export default function EditProfile() {
       </Head>
       <div className={classes.wrapper}>
         <ContentPaper className={classes.contentPaper}>
-          <EditProfileForm />
+          <EditForm />
         </ContentPaper> 
       </div>
     </Layout>
