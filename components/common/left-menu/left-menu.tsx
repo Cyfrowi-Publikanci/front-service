@@ -46,11 +46,18 @@ export const LeftMenu = ({ handleDrawerClose }: Props) => {
           </>
         )}
         { token && (
+          <>
           <MenuItem
             label={t`Change Password`}
             url={routes.editProfile}
             handleDrawerClose={handleDrawerClose}
           />
+          <MenuItem
+            label={t`Buy premium`}
+            url={routes.premium}
+            handleDrawerClose={handleDrawerClose}
+          />
+          </>
         )}
       </List>
     </>
