@@ -3,5 +3,5 @@ export default {
   register: '/register',
   login: '/login',
   editProfile: '/edit-profile',
-  premium: '/buy-premium'
+  premium: '/premium'
 } as const;

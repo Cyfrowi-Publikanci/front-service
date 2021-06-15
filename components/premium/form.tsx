@@ -108,7 +108,7 @@ export const BuyPremiumForm = () => {
                 id="year"
                 label={t`Please enter expiration year`}
                 name="year"
-                value={values.month}
+                value={values.year}
                 variant="outlined"
                 type="year"
                 onBlur={handleBlur}
