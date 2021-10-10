@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: circleci/node:latest
     steps:
+      - checkout
       - run:
           name: yarn install
           command: yarn install
