@@ -24,7 +24,6 @@ workflows:
             branches:
               only:
                 - ci
-
   build_and_publish_image:
      jobs:
       - docker-publish/publish:
