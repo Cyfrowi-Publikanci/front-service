@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  kaniko-publish: glenjamin/kaniko-publish@0.0.1
+
 jobs:
   test:
     docker:
@@ -17,6 +20,16 @@ workflows:
   base:
     jobs:
       - test:
+          filters:
+            branches:
+              only:
+                - ci
+
+  build_and_publish_image:
+     jobs:
+      - docker-publish/publish:
+          image: front-service
+          tag: latest
           filters:
             branches:
               only:
