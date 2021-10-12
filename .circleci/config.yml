@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  kaniko-publish: glenjamin/kaniko-publish@0.0.1
-
 jobs:
   test:
     docker:
@@ -15,6 +12,17 @@ jobs:
       - run:
           name: test
           command: yarn test
+  build_and_push:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker build -t kcc112/front-service:latest .
+            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker push ariv3ra/$IMAGE_NAME:$TAG
 
 workflows:
   base:
@@ -24,12 +32,9 @@ workflows:
             branches:
               only:
                 - ci
-  build_and_publish_image:
-     jobs:
-      - docker-publish/publish:
-          image: front-service
-          tag: latest
+      - build_and_push:
           filters:
-            branches:
-              only:
-                - ci
+              branches:
+                only:
+                  - ci
+
