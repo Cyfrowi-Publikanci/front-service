@@ -4,10 +4,9 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-
 import { MenuItem } from './menu-item';
 import routes from '../../../config/routes';
-import { selectAuthorizationToken } from '../../../redux/selectors';
+import { selectAuthorizationToken, decodedToken } from '../../../redux/selectors';
 
 interface Props {
   handleDrawerClose: () => void;
@@ -16,6 +15,9 @@ interface Props {
 export const LeftMenu = ({ handleDrawerClose }: Props) => {
   const { t } = useTranslation();
   const token = useSelector(selectAuthorizationToken);
+  const usrIdObject = useSelector(decodedToken);
+
+  console.log('xd', usrIdObject.usr)
 
   return (
     <>
@@ -46,11 +48,23 @@ export const LeftMenu = ({ handleDrawerClose }: Props) => {
           </>
         )}
         { token && (
-          <MenuItem
-            label={t`Change Password`}
-            url={routes.editProfile}
-            handleDrawerClose={handleDrawerClose}
-          />
+          <>
+            <MenuItem
+              label={t`Change Password`}
+              url={routes.editPassword}
+              handleDrawerClose={handleDrawerClose}
+            />
+            <MenuItem
+              label={t`Profile`}
+              url={`${routes.profile}/${usrIdObject.usr}`}
+              handleDrawerClose={handleDrawerClose}
+            />
+            <MenuItem
+              label={t`Edit profile`}
+              url={`${routes.editProfile}/${usrIdObject.usr}`}
+              handleDrawerClose={handleDrawerClose}
+            />
+          </>
         )}
       </List>
     </>
