@@ -14,3 +14,8 @@ export interface ComponentsState {
     type?: AlertType;
   };
 }
+
+export interface ProfileState {
+  bgColor: string;
+  fontSize: string,
+}

@@ -176,7 +176,6 @@ export class AuthServiceClient {
     this.methodInforegisterByEmail);
   }
 
-
   methodInfoeditPassword = new grpcWeb.AbstractClientBase.MethodInfo(
     authentication_pb.EditPasswordResponse,
     (request: authentication_pb.EditPasswordPayload) => {
@@ -195,7 +194,7 @@ export class AuthServiceClient {
     callback: (err: grpcWeb.Error,
                response: authentication_pb.EditPasswordResponse) => void): grpcWeb.ClientReadableStream<authentication_pb.EditPasswordResponse>;
 
-   editPassword(
+  editPassword(
     request: authentication_pb.EditPasswordPayload,
     metadata: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.Error,
@@ -251,7 +250,6 @@ export class AuthServiceClient {
     }
     return this.client_.unaryCall(
     this.hostname_ +
-
       '/authentication.AuthService/loginByGoogle',
     request,
     metadata || {},

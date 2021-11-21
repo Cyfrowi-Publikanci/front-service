@@ -1,7 +1,7 @@
-export interface EditFormObject {
-  email: string;
-  password: string;
-  passwordConfirm: string;
+export interface EditProfileFormObject {
+  wasChanged: boolean;
+  color: string;
+  fontsize: string;
 }
 
-export type HandleFormSubmitType = (values: EditFormObject) => void;
+export type HandleFormSubmitType = (values: EditProfileFormObject) => void;
