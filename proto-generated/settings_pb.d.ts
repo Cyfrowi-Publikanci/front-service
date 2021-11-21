@@ -17,11 +17,11 @@ export namespace EmptyPayload {
 }
 
 export class LoadProfileResponse extends jspb.Message {
-  getPreferences(): string;
-  setPreferences(value: string): LoadProfileResponse;
+  getBgcolor(): string;
+  setBgcolor(value: string): LoadProfileResponse;
 
-  getUserid(): string;
-  setUserid(value: string): LoadProfileResponse;
+  getFontsize(): string;
+  setFontsize(value: string): LoadProfileResponse;
 
   getWaschanged(): boolean;
   setWaschanged(value: boolean): LoadProfileResponse;
@@ -36,8 +36,8 @@ export class LoadProfileResponse extends jspb.Message {
 
 export namespace LoadProfileResponse {
   export type AsObject = {
-    preferences: string,
-    userid: string,
+    bgcolor: string,
+    fontsize: string,
     waschanged: boolean,
   }
 }
@@ -61,8 +61,8 @@ export namespace LoadProfilePayload {
 }
 
 export class ChangeProfileResponse extends jspb.Message {
-  getUserid(): string;
-  setUserid(value: string): ChangeProfileResponse;
+  getStatus(): string;
+  setStatus(value: string): ChangeProfileResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ChangeProfileResponse.AsObject;
@@ -74,16 +74,16 @@ export class ChangeProfileResponse extends jspb.Message {
 
 export namespace ChangeProfileResponse {
   export type AsObject = {
-    userid: string,
+    status: string,
   }
 }
 
 export class ChangeProfilePayload extends jspb.Message {
-  getUserid(): string;
-  setUserid(value: string): ChangeProfilePayload;
+  getBgcolor(): string;
+  setBgcolor(value: string): ChangeProfilePayload;
 
-  getPreferences(): string;
-  setPreferences(value: string): ChangeProfilePayload;
+  getFontsize(): string;
+  setFontsize(value: string): ChangeProfilePayload;
 
   getWaschanged(): boolean;
   setWaschanged(value: boolean): ChangeProfilePayload;
@@ -98,8 +98,8 @@ export class ChangeProfilePayload extends jspb.Message {
 
 export namespace ChangeProfilePayload {
   export type AsObject = {
-    userid: string,
-    preferences: string,
+    bgcolor: string,
+    fontsize: string,
     waschanged: boolean,
   }
 }

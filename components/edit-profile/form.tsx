@@ -1,3 +1,6 @@
+import React from 'react';
+import { InputLabel, Select } from '@material-ui/core';
+import { FormControl } from '@material-ui/core';
 import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -9,18 +12,17 @@ import { useStyles } from './styles';
 import { HandleFormSubmitType, EditProfileFormObject } from './types';
 import routes from '../../config/routes';
 import { ChangeProfilePayload } from '../../proto-generated/settings_pb';
-import { ChangeProfile } from '../../redux/actions/edit';
-import { findErrorById, validate, ValidationError } from '../common/utils/formik/validation-helper';
-import React from 'react';
-import { InputLabel, Select } from '@material-ui/core';
-import { FormControl } from '@material-ui/core';
+import { changeProfile } from '../../redux/actions/edit';
 
-export const EditProfileForm = () => {
+interface Props {
+  id: string;
+}
+
+export const EditProfileForm = ({ id }: Props ) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const dispatch = useDispatch();
   const router = useRouter();
-  const [formErrors, setFormErrors] = useState<ValidationError[] | undefined>(undefined);
   const [formInitialValues] = useState<EditProfileFormObject>({
     color: '',
     fontsize: '',
@@ -28,25 +30,23 @@ export const EditProfileForm = () => {
   });
 
   const successfulEditcallback = useCallback(() => {
-    router.replace(routes.dashboard);
+    router.replace(`${routes.profile}/${id}`);
   }, []);
 
   const handleFormSubmit = useCallback<HandleFormSubmitType>((values: EditProfileFormObject) => {
       const { fontsize, color } = values;
-      console.log("fontsize =>" + fontsize + " color =>" + color);
-      const preferences = fontsize + color;
-      const payload = new ChangeProfilePayload();
-      payload.setPreferences(preferences);
-      payload.setWaschanged(true);
-      
-      setFormErrors(undefined);
-      dispatch(ChangeProfile(payload, successfulEditcallback));
-
+      if (fontsize && color) {
+        const payload = new ChangeProfilePayload();
+        payload.setBgcolor(color);
+        payload.setFontsize(fontsize)
+        payload.setWaschanged(true);
+        dispatch(changeProfile(payload, successfulEditcallback));
+      }
   }, []);
 
   return (
     <Formik onSubmit={handleFormSubmit} initialValues={formInitialValues}>
-      {({ handleSubmit, handleChange, handleBlur, values }) => (
+      {({ handleSubmit, handleChange}) => (
         <Form onSubmit={handleSubmit} className={classes.form}>
           <h1>Choose what you want to custozime</h1>
           <FormControl className={classes.formControl}>
@@ -60,9 +60,9 @@ export const EditProfileForm = () => {
                   }}
                 >
               <option aria-label="None" value="" />
-              <option value={'fontSize: 10,'}>10</option>
-              <option value={'fontSize: 20,'}>20</option>
-              <option value={'fontSize: 30,'}>30</option>
+              <option value={'10px'}>10</option>
+              <option value={'20px'}>20</option>
+              <option value={'100px'}>100</option>
               </Select>
           </FormControl>
           <FormControl className={classes.formControl}>
@@ -76,13 +76,13 @@ export const EditProfileForm = () => {
                   }}
                 >
               <option aria-label="None" value="" />
-              <option value={" backgroundColor:'green',"}>green</option>
-              <option value={" backgroundColor:'blue',"}>blue</option>
-              <option value={" backgroundColor:'yellow',"}>yellow</option>
+              <option value={"green"}>green</option>
+              <option value={"blue"}>blue</option>
+              <option value={"yellow"}>yellow</option>
               </Select>
           </FormControl>
           <Button variant="contained" type="submit" size="large">
-                {t`Saves changes`}
+            {t`Saves changes`}
           </Button>
         </Form>
       )}

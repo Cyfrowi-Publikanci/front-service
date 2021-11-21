@@ -82,7 +82,7 @@ export const LoginForm = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" type="submit" size="large">
+              <Button variant="contained" type="submit" size="large" fullWidth>
                 {t`Login`}
               </Button>
             </Grid>

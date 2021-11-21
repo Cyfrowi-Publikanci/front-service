@@ -3,6 +3,7 @@ import getConfig from 'next/config';
 import { AuthServiceClient } from '../proto-generated/AuthenticationServiceClientPb';
 import { SettingsServiceClient } from '../proto-generated/SettingsServiceClientPb';
 import AuthStreamInterceptor from './auth-stream-interceptor';
+import AuthUnaryInterceptor from './auth-unary-interceptor';
 
 declare global {
   interface Window {
@@ -15,13 +16,16 @@ declare global {
 const { publicRuntimeConfig } = getConfig()
 
 const authStreamInterceptor = new AuthStreamInterceptor();
+const authUnaryInterceptor = new AuthUnaryInterceptor();
 
 export const authServiceClient = new AuthServiceClient(publicRuntimeConfig.publicApiUrl, undefined, {
   streamInterceptors: [authStreamInterceptor],
+  unaryInterceptors: [authUnaryInterceptor]
 });
 
 export const settingsServiceClient = new SettingsServiceClient(publicRuntimeConfig.publicApiUrl, undefined, {
   streamInterceptors: [authStreamInterceptor],
+  unaryInterceptors: [authUnaryInterceptor]
 });
 
 if (process.browser) {

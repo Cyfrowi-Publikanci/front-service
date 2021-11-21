@@ -4,12 +4,14 @@ import {
   AUTHENTICATION_ERROR,
   AUTHENTICATION_ERROR_CLEAR,
   LOGOUT,
+  SIGN_IN_GOOGLE,
 } from '../actions-types/auth';
 import { AuthState } from '../types';
 
 export const authInitialState: AuthState = {
   authorization: '',
   authenticateError: false,
+  state: '',
 };
 
 export function authReducer(state = authInitialState, action: AuthActionTypes): AuthState {
@@ -34,6 +36,11 @@ export function authReducer(state = authInitialState, action: AuthActionTypes): 
     case LOGOUT:
       return {
         ...authInitialState,
+      };
+    case SIGN_IN_GOOGLE:
+      return {
+        ...state,
+        state: action.payload.state,
       };
     default:
       return state;

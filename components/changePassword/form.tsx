@@ -10,7 +10,7 @@ import { useStyles } from './styles';
 import { HandleFormSubmitType, EditFormObject } from './types';
 import routes from '../../config/routes';
 import { EditPasswordPayload } from '../../proto-generated/authentication_pb';
-import { EditPassword } from '../../redux/actions/edit';
+import { editPassword } from '../../redux/actions/edit';
 import { findErrorById, validate, ValidationError } from '../common/utils/formik/validation-helper';
 import { validationEditPasswordSchema } from '../common/schemas/edit-password-schema';
 import { CssTextField } from '../styles';
@@ -43,7 +43,7 @@ export const EditForm = () => {
       payload.setPasswordconfirm(passwordConfirm);
       
       setFormErrors(undefined);
-      dispatch(EditPassword(payload, successfulEditcallback));
+      dispatch(editPassword(payload, successfulEditcallback));
     } else {
       setFormErrors(errors);
     }

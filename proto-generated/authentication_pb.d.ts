@@ -158,3 +158,39 @@ export namespace EditPasswordPayload {
   }
 }
 
+export class LoginByGooglePayload extends jspb.Message {
+  getToken(): string;
+  setToken(value: string): LoginByGooglePayload;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LoginByGooglePayload.AsObject;
+  static toObject(includeInstance: boolean, msg: LoginByGooglePayload): LoginByGooglePayload.AsObject;
+  static serializeBinaryToWriter(message: LoginByGooglePayload, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LoginByGooglePayload;
+  static deserializeBinaryFromReader(message: LoginByGooglePayload, reader: jspb.BinaryReader): LoginByGooglePayload;
+}
+
+export namespace LoginByGooglePayload {
+  export type AsObject = {
+    token: string,
+  }
+}
+
+export class LoginByGoogleResponse extends jspb.Message {
+  getToken(): string;
+  setToken(value: string): LoginByGoogleResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LoginByGoogleResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: LoginByGoogleResponse): LoginByGoogleResponse.AsObject;
+  static serializeBinaryToWriter(message: LoginByGoogleResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LoginByGoogleResponse;
+  static deserializeBinaryFromReader(message: LoginByGoogleResponse, reader: jspb.BinaryReader): LoginByGoogleResponse;
+}
+
+export namespace LoginByGoogleResponse {
+  export type AsObject = {
+    token: string,
+  }
+}
+

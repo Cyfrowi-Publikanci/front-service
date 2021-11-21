@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertPubLab should match snapshot if alert type is ERROR 1`] = `
+<WithStyles(ForwardRef(Snackbar))
+  anchorOrigin={
+    Object {
+      "horizontal": "center",
+      "vertical": "bottom",
+    }
+  }
+  autoHideDuration={4000}
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(Alert))
+    onClose={[Function]}
+    severity="error"
+    variant="filled"
+  >
+    Test
+  </WithStyles(ForwardRef(Alert))>
+</WithStyles(ForwardRef(Snackbar))>
+`;
+
+exports[`AlertPubLab should match snapshot if alert type is SUCCESS 1`] = `
+<WithStyles(ForwardRef(Snackbar))
+  anchorOrigin={
+    Object {
+      "horizontal": "center",
+      "vertical": "bottom",
+    }
+  }
+  autoHideDuration={4000}
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(Alert))
+    onClose={[Function]}
+    severity="success"
+    variant="filled"
+  >
+    Test
+  </WithStyles(ForwardRef(Alert))>
+</WithStyles(ForwardRef(Snackbar))>
+`;

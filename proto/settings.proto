@@ -10,8 +10,8 @@ service SettingsService {
 message EmptyPayload {}
 
 message LoadProfileResponse {
-  string preferences = 1;
-  string userid = 2;
+  string bgColor = 1;
+  string fontSize = 2;
   bool waschanged = 3;
 }
 
@@ -20,11 +20,11 @@ message LoadProfilePayload {
 }
 
 message ChangeProfileResponse {
-  string userid = 2;
+  string status = 1;
 }
 
 message ChangeProfilePayload {
-  string userid = 1;
-  string preferences = 2;
+  string bgColor = 1;
+  string fontSize = 2;
   bool waschanged = 3;
 }

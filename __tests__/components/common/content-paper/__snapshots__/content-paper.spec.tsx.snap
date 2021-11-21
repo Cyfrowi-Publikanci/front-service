@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentPaper should match snapshot 1`] = `
+<WithStyles(ForwardRef(Paper))
+  className="makeStyles-paperContainer-1 class"
+  elevation={3}
+>
+  <div>
+    test
+  </div>
+</WithStyles(ForwardRef(Paper))>
+`;

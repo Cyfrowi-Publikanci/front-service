@@ -2,6 +2,7 @@ export default {
   dashboard: '/',
   register: '/register',
   login: '/login',
-  editPassword: '/changePassword',
-  editProfile: '/editProfile'
+  editPassword: '/change-password',
+  editProfile: '/edit-profile',
+  profile: '/profile'
 } as const;
