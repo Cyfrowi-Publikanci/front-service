@@ -17,8 +17,6 @@ export const LeftMenu = ({ handleDrawerClose }: Props) => {
   const token = useSelector(selectAuthorizationToken);
   const usrIdObject = useSelector(decodedToken);
 
-  console.log('xd', usrIdObject.usr)
-
   return (
     <>
       <div>

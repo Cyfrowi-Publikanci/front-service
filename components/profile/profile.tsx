@@ -23,7 +23,7 @@ export function Profile({ id }: Props) {
       payload.setUserid(id);
       dispatch(loadProfile(payload));
     }
-    }, [id]);
+  }, [id]);
 
   return (
     <div className={classes.wrapper}>

@@ -9,6 +9,8 @@ import { EditPasswordPayload  } from '../../proto-generated/authentication_pb';
 import { authServiceClient, settingsServiceClient } from '../../api/rpc';
 import { ChangeProfilePayload, LoadProfilePayload, LoadProfileResponse } from '../../proto-generated/settings_pb';
 import { LoadProfileSuccessAction, LOAD_PROFILE_SUCCESS, ProfileActionTypes } from '../actions-types/profile';
+import { clearEditProfileOffline, editProfileOffline } from './offline';
+import { OfflineActionTypes } from '../actions-types/offline';
 
 export const loadProfileSuccess = (payload: { bgColor: string, fontSize: string }): LoadProfileSuccessAction => ({
   type: LOAD_PROFILE_SUCCESS,
@@ -32,17 +34,22 @@ export const editPassword = (payload: EditPasswordPayload, successfulCallback: (
 };
 
 export const changeProfile = (payload: ChangeProfilePayload, successfulCallback: () => void) => async (
-  dispatch: ThunkDispatch<AppState, void, AuthActionTypes | ComponentsActionTypes>,
+  dispatch: ThunkDispatch<AppState, void, AuthActionTypes | ComponentsActionTypes | OfflineActionTypes | ProfileActionTypes>,
   ) => {
     try {
-      console.log('xd1')
       dispatch(showGlobalLoader());
       await settingsServiceClient.changeProfile(payload, {});
   
       successfulCallback();
       dispatch(showAlert(i18n.t('Profile changed successfully'), AlertType.SUCCESS));
+      dispatch(clearEditProfileOffline());
     } catch (error) {
-      dispatch(showAlert(i18n.t(error.message ?? 'Change failed'), AlertType.ERROR));
+      const bgColor = payload.getBgcolor();
+      const fontSize = payload.getFontsize();
+      // dispatch(showAlert(i18n.t(error.message ?? 'Change failed'), AlertType.ERROR));
+      dispatch(editProfileOffline(bgColor, fontSize));
+      dispatch(loadProfileSuccess({ bgColor: bgColor, fontSize: fontSize }));
+      successfulCallback();
     } finally {
       dispatch(hideGlobalLoader());
     }

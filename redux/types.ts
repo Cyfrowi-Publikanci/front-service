@@ -19,3 +19,10 @@ export interface ProfileState {
   bgColor: string;
   fontSize: string,
 }
+
+export interface OfflineState {
+  editProfile: {
+    bgColor: string;
+    fontSize: string;
+  } | undefined
+}

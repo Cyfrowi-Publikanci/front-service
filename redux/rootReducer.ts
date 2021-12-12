@@ -4,12 +4,14 @@ import {
   authReducer,
   componentsReducer,
 } from './reducers';
+import { offlineReducer } from './reducers/offline';
 import { profileReducer } from './reducers/profile';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   components: componentsReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  offline: offlineReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

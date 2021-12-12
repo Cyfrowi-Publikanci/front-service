@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { InputLabel, Select } from '@material-ui/core';
 import { FormControl } from '@material-ui/core';
 import { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { Form, Formik } from 'formik';
@@ -13,6 +13,7 @@ import { HandleFormSubmitType, EditProfileFormObject } from './types';
 import routes from '../../config/routes';
 import { ChangeProfilePayload } from '../../proto-generated/settings_pb';
 import { changeProfile } from '../../redux/actions/edit';
+import { selectOfflineEditProfileRequest } from '../../redux/selectors';
 
 interface Props {
   id: string;
@@ -23,11 +24,22 @@ export const EditProfileForm = ({ id }: Props ) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const router = useRouter();
+  const selectOfflineEditProfile = useSelector(selectOfflineEditProfileRequest);
   const [formInitialValues] = useState<EditProfileFormObject>({
     color: '',
     fontsize: '',
     wasChanged: false,
   });
+
+  useEffect(() => {
+    if (selectOfflineEditProfile != undefined) {
+      const payload = new ChangeProfilePayload();
+      payload.setBgcolor(selectOfflineEditProfile.bgColor);
+      payload.setFontsize(selectOfflineEditProfile.fontSize);
+      payload.setWaschanged(true);
+      dispatch(changeProfile(payload, () => {}));
+    }
+  }, []);
 
   const successfulEditcallback = useCallback(() => {
     router.replace(`${routes.profile}/${id}`);

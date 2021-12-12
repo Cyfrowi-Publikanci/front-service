@@ -19,7 +19,6 @@ export default class AuthUnaryInterceptor<REQ, RESP> implements grpcWeb.UnaryInt
     const metadata = request.getMetadata();
     const token = store.getState().auth.authorization;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    console.log('XD2')
 
     const { name } = request.getMethodDescriptor() as any;
 

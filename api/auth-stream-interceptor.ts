@@ -12,7 +12,6 @@ export default class AuthStreamInterceptor<REQ, RESP> implements grpcWeb.StreamI
   ): grpcWeb.ClientReadableStream<RESP> {
     const metadata = request.getMetadata();
     const token = store.getState().auth.authorization;
-    console.log('XD2')
     metadata.authorization = `Bearer ${token}`;
     const response = invoker(request);
     response.on('error', error => {
