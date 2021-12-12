@@ -6,7 +6,7 @@ import { hideGlobalLoader, showAlert, showGlobalLoader } from './components';
 import { AuthActionTypes, AUTHENTICATE_SUCCESS, LOGOUT, LogoutAction, SIGN_IN_GOOGLE } from '../actions-types/auth';
 import { ComponentsActionTypes } from '../actions-types/components';
 import { AlertType } from '../../components/common/alerts/types';
-import { LoginByEmailPayload, RegisterByEmailPayload } from '../../proto-generated/authentication_pb';
+import { EmptyPayload, LoginByEmailPayload, RegisterByEmailPayload } from '../../proto-generated/authentication_pb';
 import { authServiceClient } from '../../api/rpc';
 
 export const logout = (): LogoutAction => ({
@@ -54,5 +54,19 @@ export const register = (payload: RegisterByEmailPayload, successfulCallback: ()
     dispatch(showAlert(i18n.t(error.message ?? 'Registered failed'), AlertType.ERROR));
   } finally {
     dispatch(hideGlobalLoader());
+  }
+};
+
+export const getAllNotyfications = () => async (
+  dispatch: ThunkDispatch<AppState, void, AuthActionTypes | ComponentsActionTypes>,
+) => {
+  try {
+    const payload = new EmptyPayload();
+    const response = await authServiceClient.getAllNotifications(payload, {})
+    const notifications = response.getNotyficationsList()
+
+    dispatch(showAlert(notifications.toString(), AlertType.SUCCESS));
+  } catch (error) {
+    console.log(error)
   }
 };

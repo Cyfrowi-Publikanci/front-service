@@ -12,7 +12,7 @@ export default function Dashboard() {
       <Head>
         <title>{t`Dashboard`}</title>
       </Head>
-      <h1>{t`Dashboard`}</h1>
+      <h1>{t`Dashboard12`}</h1>
     </Layout>
   );
 }

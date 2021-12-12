@@ -256,5 +256,45 @@ export class AuthServiceClient {
     this.methodInfologinByGoogle);
   }
 
+  methodInfogetAllNotifications = new grpcWeb.AbstractClientBase.MethodInfo(
+    authentication_pb.GetAllNotyficationsResponse,
+    (request: authentication_pb.EmptyPayload) => {
+      return request.serializeBinary();
+    },
+    authentication_pb.GetAllNotyficationsResponse.deserializeBinary
+  );
+
+  getAllNotifications(
+    request: authentication_pb.EmptyPayload,
+    metadata: grpcWeb.Metadata | null): Promise<authentication_pb.GetAllNotyficationsResponse>;
+
+  getAllNotifications(
+    request: authentication_pb.EmptyPayload,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.Error,
+               response: authentication_pb.GetAllNotyficationsResponse) => void): grpcWeb.ClientReadableStream<authentication_pb.GetAllNotyficationsResponse>;
+
+  getAllNotifications(
+    request: authentication_pb.EmptyPayload,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.Error,
+               response: authentication_pb.GetAllNotyficationsResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/authentication.AuthService/getAllNotifications',
+        request,
+        metadata || {},
+        this.methodInfogetAllNotifications,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/authentication.AuthService/getAllNotifications',
+    request,
+    metadata || {},
+    this.methodInfogetAllNotifications);
+  }
+
 }
 

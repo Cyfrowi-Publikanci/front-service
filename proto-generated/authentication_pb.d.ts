@@ -139,9 +139,6 @@ export class EditPasswordPayload extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): EditPasswordPayload;
 
-  getPasswordconfirm(): string;
-  setPasswordconfirm(value: string): EditPasswordPayload;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): EditPasswordPayload.AsObject;
   static toObject(includeInstance: boolean, msg: EditPasswordPayload): EditPasswordPayload.AsObject;
@@ -154,7 +151,6 @@ export namespace EditPasswordPayload {
   export type AsObject = {
     email: string,
     password: string,
-    passwordconfirm: string,
   }
 }
 
@@ -191,6 +187,26 @@ export class LoginByGoogleResponse extends jspb.Message {
 export namespace LoginByGoogleResponse {
   export type AsObject = {
     token: string,
+  }
+}
+
+export class GetAllNotyficationsResponse extends jspb.Message {
+  getNotyficationsList(): Array<string>;
+  setNotyficationsList(value: Array<string>): GetAllNotyficationsResponse;
+  clearNotyficationsList(): GetAllNotyficationsResponse;
+  addNotyfications(value: string, index?: number): GetAllNotyficationsResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetAllNotyficationsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetAllNotyficationsResponse): GetAllNotyficationsResponse.AsObject;
+  static serializeBinaryToWriter(message: GetAllNotyficationsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetAllNotyficationsResponse;
+  static deserializeBinaryFromReader(message: GetAllNotyficationsResponse, reader: jspb.BinaryReader): GetAllNotyficationsResponse;
+}
+
+export namespace GetAllNotyficationsResponse {
+  export type AsObject = {
+    notyficationsList: Array<string>,
   }
 }
 
